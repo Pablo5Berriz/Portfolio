@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Compétences - Paul Quentin Ondoa</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
+    <body>
+        <!-- Navigation -->
+        <header class="navbar">
+            <div class="logo">
+              <a href="index.html" style="margin-left: 50px;">Paul Quentin Ondoa</a>
+            </div>
+            <nav>
+                <ul>
+                  <li><a href="index.html">Accueil</a></li>
+                  <li><a href="about.html">À propos</a></li>
+                  <li><a href="skills.html" class="active">Compétences</a></li>
+                  <li><a href="experiences.html">Expériences</a></li>
+                  <li><a href="projects.html">Projets</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                  <li><a href="assets/CV_Paul_Quentin.pdf" download>Télécharger mon CV</a></li>           
+                </ul>
+            </nav>
+            <div class="hamburger-menu" onclick="toggleSidebar()">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+        </header>
+      
+        <!-- Sidebar -->
+        <div id="sidebar" class="sidebar">
+            <ul>
+              <li><a href="index.html" onclick="toggleSidebar()">Accueil</a></li>
+              <li><a href="about.html" onclick="toggleSidebar()">À propos</a></li>
+              <li><a href="skills.html" onclick="toggleSidebar()">Compétences</a></li>
+              <li><a href="experiences.html" onclick="toggleSidebar()">Expériences</a></li>
+              <li><a href="projects.html" onclick="toggleSidebar()">Projets</a></li>
+              <li><a href="contact.html" onclick="toggleSidebar()">Contact</a></li>
+              <li><a href="assets/CV_Paul_Quentin.pdf" download onclick="toggleSidebar()">Télécharger mon CV</a></li>
+            </ul>
+          </div>
+
+        <!-- Section Compétences -->
+        <section class="skills">
+            <div class="skills-category">
+                <h3>Développement web et mobile</h3>
+                <div class="skills-list">
+                    <div class="skill"><i class="fab fa-html5"></i> HTML5</div>
+                    <div class="skill"><i class="fab fa-css3-alt"></i> CSS3</div>
+                    <div class="skill"><i class="fab fa-js-square"></i> JavaScript</div>
+                    <div class="skill"><i class="fas fa-code"></i> PHP</div>
+                    <div class="skill"><i class="fab fa-python"></i> Python</div>
+                    <div class="skill"><i class="fab fa-csharp"></i> C#</div>
+                    <div class="skill"><i class="fas fa-tools"></i> ASP.NET</div>
+                    <div class="skill"><i class="fab fa-react"></i> React</div>
+                    <div class="skill"><i class="fas fa-mobile-alt"></i> Flutter</div>
+                    <div class="skill"><i class="fab fa-android"></i> Android</div>
+                    <div class="skill"><i class="fab fa-node-js"></i> Node.js</div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3>Base de données</h3>
+                <div class="skills-list">
+                    <div class="skill"><i class="fas fa-database"></i> MongoDB</div>
+                    <div class="skill"><i class="fas fa-database"></i> SQL Server</div>
+                    <div class="skill"><i class="fas fa-database"></i> MySQL</div>
+                    <div class="skill"><i class="fas fa-database"></i> PostgreSQL</div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3>Systèmes de contrôle de version</h3>
+                <div class="skills-list">
+                    <div class="skill"><i class="fab fa-github"></i> GitHub</div>
+                    <div class="skill"><i class="fab fa-gitlab"></i> GitLab</div>
+                    <div class="skill"><i class="fas fa-server"></i> FileZilla</div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3>IDE et Outils</h3>
+                <div class="skills-list">
+                    <div class="skill"><i class="fab fa-linux"></i> Fedora</div>
+                    <div class="skill"><i class="fab fa-apache"></i> Apache</div>
+                    <div class="skill"><i class="fas fa-code"></i> Visual Studio Code</div>
+                    <div class="skill"><i class="fas fa-laptop-code"></i> Visual Studio</div>
+                    <div class="skill"><i class="fab fa-jira"></i> Jira</div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3>Outils pour le Support Technique</h3>
+                <div class="skills-list">
+                    <div class="skill"><i class="fas fa-network-wired"></i> Active Directory</div>
+                    <div class="skill"><i class="fas fa-tools"></i> TeamViewer</div>
+                    <div class="skill"><i class="fas fa-screwdriver-wrench"></i> AnyDesk</div>
+                    <div class="skill"><i class="fas fa-database"></i> phpMyAdmin</div>
+                    <div class="skill"><i class="fas fa-cloud"></i> Google Workspace</div>
+                    <div class="skill"><i class="fas fa-user-cog"></i> Okta</div>
+                    <div class="skill"><i class="fas fa-server"></i> Windows Server Manager</div>
+                    <div class="skill"><i class="fas fa-print"></i> PaperCut</div>
+                </div>
+            </div>
+        </section>
+          
+        <script src="script.js"></script>
+    </body>
+</html>

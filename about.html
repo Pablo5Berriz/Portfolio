@@ -1,0 +1,204 @@
+<!DOCTYPE html> 
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Paul Quentin Ondoa Bidzo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  </head>
+  <body>
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="logo">
+          <a href="index.html" style="margin-left: 50px;">Paul Quentin Ondoa</a>
+        </div>
+        <nav>
+            <ul>
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="about.html" class="active">À propos</a></li>
+              <li><a href="skills.html">Compétences</a></li>
+              <li><a href="experiences.html">Expériences</a></li>
+              <li><a href="projects.html">Projets</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="assets/CV_Paul_Quentin.pdf" download>Télécharger mon CV</a></li>           
+            </ul>
+        </nav>
+        <div class="hamburger-menu" onclick="toggleSidebar()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+    </header>
+  
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+      <ul>
+        <li><a href="index.html" onclick="toggleSidebar()">Accueil</a></li>
+        <li><a href="about.html" onclick="toggleSidebar()">À propos</a></li>
+        <li><a href="skills.html" onclick="toggleSidebar()">Compétences</a></li>
+        <li><a href="experiences.html" onclick="toggleSidebar()">Expériences</a></li>
+        <li><a href="projects.html" onclick="toggleSidebar()">Projets</a></li>
+        <li><a href="contact.html" onclick="toggleSidebar()">Contact</a></li>
+        <li><a href="assets/CV_Paul_Quentin.pdf" download onclick="toggleSidebar()">Télécharger mon CV</a></li>
+      </ul>
+    </div>
+
+    <!-- Section About -->
+    <section class="about">
+        <div class="about-image">
+            <img src="assets/Profile.jpg" alt="Photo de profil de Paul Quentin Ondoa">
+        </div>
+        <div class="about-content">
+            <h2>Salut</h2>
+            <p>
+                Je suis Paul Quentin, un développeur passionné, diplômé en développement web et mobile. 
+                Spécialisé dans le développement full-stack, je m’engage à créer des expériences utilisateur transparentes et des solutions backend robustes. 
+                Mon expertise couvre à la fois le développement frontend, où je conçois des interfaces intuitives et esthétiques, et le développement backend, où je construis des systèmes fiables et sécurisés pour répondre aux besoins les plus complexes.
+            </p>
+            <p>
+                Fort d'une solide maîtrise de technologies modernes telles que HTML, CSS, JavaScript, PHP, ASP.Net Core, C#, Node.js, Next.js, React, Laravel, React Native, Kotlin et Flutter, ainsi que des bases de données comme MySQL, MySQLi, MongoDB et PostgreSQL, je propose des solutions sur mesure alliant innovation, efficacité et qualité. Chaque projet que je réalise est une opportunité d'apporter une valeur ajoutée unique tout en repoussant les limites de la créativité et de la performance.
+            </p>
+            <p>
+                Toujours curieux et en quête d’innovation, je m’efforce d’explorer de nouveaux outils et techniques pour rester à l’avant-garde du paysage technologique en constante évolution. 
+                Mon objectif est de collaborer avec des clients et des partenaires pour transformer leurs idées en produits digitaux performants et impactants. 
+                Qu’il s’agisse de développer des sites vitrines, des applications mobiles ou des systèmes complexes, je m’efforce d’offrir des solutions adaptées et durables.
+            </p>
+            <p>
+                En plus de mes compétences techniques, je mets un point d’honneur à comprendre les besoins spécifiques de mes clients afin de leur proposer des solutions sur mesure, tout en maintenant un haut niveau de professionnalisme et de créativité. 
+                Ouvert aux collaborations et aux projets passionnants, je suis convaincu que la technologie est un levier puissant pour résoudre les problématiques concrètes et créer des opportunités infinies.
+            </p>
+            <p>
+                Construisons ensemble quelque chose d’incroyable ! 🚀
+            </p>
+        </div>
+    </section>
+
+    <!-- Section Éducation -->
+    <section class="education">
+        <h3>ÉDUCATION</h3>
+        <div class="education-card">
+            <div class="logo">
+                <img src="assets/multihexa.png" alt="Collège Multihexa">
+            </div>
+            <div class="details">
+                <h4>Collège Multihexa, Chicoutimi</h4>
+                <p>Septembre 2022 – Mai 2024</p>
+                <p>Programmation Web et Mobile</p>
+            </div>
+        </div>
+        <div class="education-card">
+            <div class="logo">
+                <img src="assets/emica.png" alt="EMICA Montréal">
+            </div>
+            <div class="details">
+                <h4>EMICA, Montréal</h4>
+                <p><strong>Création d’entreprise</strong></p>
+                <p><em>Août 2022 – Janvier 2023</em></p>
+                <ul>
+                    <li>Développement des compétences entrepreneuriales.</li>
+                    <li>Apprentissage des étapes de création d’entreprise.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="education-card">
+            <div class="logo">
+                <img src="assets/University.png" alt="Université de Douala">
+            </div>
+            <div class="details">
+                <h4>Université de Douala, Douala</h4>
+                <p><strong>Sociologie Économique</strong></p>
+                <p><em>Octobre 2013 – Août 2016</em></p>
+                <ul>
+                    <li>Analyse des systèmes économiques et sociaux.</li>
+                    <li>Développement d'une compréhension approfondie des concepts socio-économiques.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="education-card">
+            <div class="logo">
+                <img src="assets/etapes-services.png" alt="Etapes Services">
+            </div>
+            <div class="details">
+                <h4>Etapes Services, Douala</h4>
+                <p><strong>Maintenance Informatique</strong></p>
+                <p><em>Septembre 2011 – Mars 2012</em></p>
+                <ul>
+                    <li>Maintenance et gestion de parcs informatiques.</li>
+                    <li>Installation et configuration de logiciels.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="education-card">
+            <div class="logo">
+                <img src="assets/University.png" alt="Université de Douala">
+            </div>
+            <div class="details">
+                <h4>Université de Douala, Douala</h4>
+                <p><strong>Droit</strong></p>
+                <p><em>Octobre 2009 – Août 2012</em></p>
+                <ul>
+                    <li>Étude des fondamentaux du droit et des sciences juridiques.</li>
+                    <li>Développement des compétences en analyse et recherche juridique.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Certificats -->
+    <section id="certifications" class="certifications">
+        <h3>CERTIFICATS</h3>
+        <div class="certification-card">
+            <div class="logo">
+                <img src="assets/Udemy.png" alt="Udemy">
+            </div>
+            <div class="details">
+                <h4>Udemy</h4>
+                <p>Janvier 2024</p>
+                <p>Bootcamp Complet en Développement Web</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Intérêts -->
+    <section id="interests" class="interests">
+        <h3>INTÉRÊTS</h3>
+        <div class="interest-list">
+            <div class="interest">
+                <i class="fas fa-code"></i>
+                <span>Codage</span>
+            </div>
+            <div class="interest">
+                <i class="fas fa-chart-line"></i>
+                <span>Analyse informatique</span>
+            </div>
+            <div class="interest">
+                <i class="fas fa-globe"></i>
+                <span>Développement Web</span>
+            </div>
+            <div class="interest">
+                <i class="fas fa-mobile-alt"></i>
+                <span>Développement d’applications mobiles</span>
+            </div>
+            <div class="interest">
+                <i class="fas fa-desktop"></i>
+                <span>Développement de logiciels</span>
+            </div>
+            <div class="interest">
+                <i class="fas fa-chart-line"></i>
+                <span>Étude de marché</span>
+            </div>
+            <div class="interest">
+                <i class="fas fa-tools"></i>
+                <span>Support Technique</span>
+            </div>
+            <div class="interest">
+                <i class="fas fa-cogs"></i>
+                <span>Configuration Systèmes</span>
+            </div>
+        </div>
+    </section>
+      
+    <script src="script.js"></script>
+</body>
+</html>

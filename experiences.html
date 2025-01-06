@@ -1,0 +1,127 @@
+<!DOCTYPE html> 
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expériences - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  </head>
+  <body>
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="logo">
+          <a href="index.html" style="margin-left: 50px;">Paul Quentin Ondoa</a>
+        </div>
+        <nav>
+            <ul>
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="about.html">À propos</a></li>
+              <li><a href="skills.html">Compétences</a></li>
+              <li><a href="experiences.html" class="active">Expériences</a></li>
+              <li><a href="projects.html">Projets</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="assets/CV_Paul_Quentin.pdf" download>Télécharger mon CV</a></li>           
+            </ul>
+        </nav>
+        <div class="hamburger-menu" onclick="toggleSidebar()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+    </header>
+  
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+      <ul>
+        <li><a href="index.html" onclick="toggleSidebar()">Accueil</a></li>
+        <li><a href="about.html" onclick="toggleSidebar()">À propos</a></li>
+        <li><a href="skills.html" onclick="toggleSidebar()">Compétences</a></li>
+        <li><a href="experiences.html" onclick="toggleSidebar()">Expériences</a></li>
+        <li><a href="projects.html" onclick="toggleSidebar()">Projets</a></li>
+        <li><a href="contact.html" onclick="toggleSidebar()">Contact</a></li>
+        <li><a href="assets/CV_Paul_Quentin.pdf" download onclick="toggleSidebar()">Télécharger mon CV</a></li>
+      </ul>
+    </div>
+
+    <!-- Section Expériences -->
+    <section class="experiences">
+        <h2>Expériences professionnelles</h2>
+        
+        <div class="experience-card">
+            <div class="logo">
+                <img src="assets/eva_technologies.png" alt="Eva Technologies">
+            </div>
+            <h3>Analyste/Programmeur - Eva Technologies (Stage)</h3>
+            <p><strong>Période : Juin 2024 - Septembre 2024</strong></p>
+            <p>
+                En tant qu'analyste/programmeur chez Eva Technologies, j'ai contribué à la conception et au développement de solutions innovantes pour améliorer l'expérience utilisateur et optimiser les performances des applications.
+            </p>
+            <ul>
+                <li>Évaluation de la vulnérabilité du site web d'Eva Technologies</li>
+                <li>Analyse du Portail de gestion des clients par EVA-Technologies</li>
+                <li>Analyse et conception de l'interface utilisateur du portail EVA-Sonepar</li>
+                <li>Identification et correction des bugs critiques sur le questionnaire et ThreatWatch</li>
+                <li>Rédaction du manuel utilisateur complet</li>
+                <li>Mise en place d'un serveur web Fedora sécurisé avec base de données PostgreSQL</li>
+                <li>Développement d'un wiki bilingue pour documenter les processus techniques</li>
+            </ul>
+        </div>
+        
+        <div class="experience-card">
+            <div class="logo">
+                <img src="assets/ebsu.png" alt="EBSU">
+            </div>
+            <h3>Technicien Support Informatique - EBSU</h3>
+            <p><strong>Période : Mars 2021 - Novembre 2023</strong></p>
+            <p>
+                Responsable de la gestion et de l'optimisation du parc informatique, j'ai assuré un support technique de qualité tout en contribuant à l'amélioration continue des infrastructures informatiques.
+            </p>
+            <ul>
+                <li>Supervision et gestion d'un parc informatique de plus de 60 postes.</li>
+                <li>Formation régulière du personnel sur les outils numériques.</li>
+                <li>Rédaction du manuel utilisateur des applications informatiques conçues en interne.</li>
+                <li>Mises à jour logicielles et gestion des autorisations des utilisateurs.</li>
+                <li>Maintenance et dépannage des équipements informatiques.</li>
+                <li>Préparation des équipements pour les nouvelles recrues.</li>
+                <li>Gestion de la salle des serveurs.</li>
+            </ul>
+        </div>
+        
+        <div class="experience-card">
+            <div class="logo">
+                <img src="assets/ebsu.png" alt="EBSU">
+            </div>
+            <h3>Chef d'équipe - EBSU</h3>
+            <p><strong>Période : Janvier 2021 - Mars 2021</strong></p>
+            <p>
+                En tant que chef d'équipe, j'ai supervisé les opérations de production tout en assurant le respect des normes de qualité et la gestion efficace des ressources.
+            </p>
+            <ul>
+                <li>Planification et supervision des tâches quotidiennes.</li>
+                <li>Contrôle qualité des produits en cours de fabrication.</li>
+                <li>Suivi et évaluation des membres de l'équipe en vue de leur perfectionnement.</li>
+                <li>Encadrement et formation des nouveaux membres de l'équipe.</li>
+                <li>Proposition de solutions innovantes pour augmenter la productivité.</li>
+            </ul>
+        </div>
+        
+        <div class="experience-card">
+            <div class="logo">
+                <img src="assets/rgae.png" alt="RGAE Cameroun">
+            </div>
+            <h3>Technicien Support Informatique - RGAE, Cameroun</h3>
+            <p><strong>Période : Août 2017 - Septembre 2019</strong></p>
+            <p>
+                Chargé du support technique et de la maintenance des équipements, j'ai joué un rôle clé dans l'amélioration des systèmes informatiques et des infrastructures réseau.
+            </p>
+            <ul>
+                <li>Diagnostic et résolution des pannes matérielles et réseau.</li>
+                <li>Installation et configuration des routeurs et switches pour optimiser le réseau.</li>
+                <li>Assistance technique aux utilisateurs finaux pour résoudre les problèmes logiciels et matériels.</li>
+                <li>Gestion et amélioration continue des équipements audiovisuels.</li>
+            </ul>
+        </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html> 
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Paul Quentin Ondoa Bidzo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="logo">
+          <a href="index.html" style="margin-left: 50px;">Paul Quentin Ondoa</a>
+        </div>
+        <nav>
+            <ul>
+              <li><a href="index.html" class="active">Accueil</a></li>
+              <li><a href="about.html">À propos</a></li>
+              <li><a href="skills.html">Compétences</a></li>
+              <li><a href="experiences.html">Expériences</a></li>
+              <li><a href="projects.html">Projets</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="assets/CV_Paul_Quentin.pdf" download>Télécharger mon CV</a></li>           
+            </ul>
+        </nav>
+        <div class="hamburger-menu" onclick="toggleSidebar()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+    </header>
+  
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+      <ul>
+        <li><a href="index.html" onclick="toggleSidebar()">Accueil</a></li>
+        <li><a href="about.html" onclick="toggleSidebar()">À propos</a></li>
+        <li><a href="skills.html" onclick="toggleSidebar()">Compétences</a></li>
+        <li><a href="experiences.html" onclick="toggleSidebar()">Expériences</a></li>
+        <li><a href="projects.html" onclick="toggleSidebar()">Projets</a></li>
+        <li><a href="contact.html" onclick="toggleSidebar()">Contact</a></li>
+        <li><a href="assets/CV_Paul_Quentin.pdf" download onclick="toggleSidebar()">Télécharger mon CV</a></li>
+      </ul>
+    </div>
+
+    <!-- Accueil -->
+    <section class="hero">
+      <div class="hero-container">
+        <div class="hero-image">
+          <img src="assets/Profile.jpg" alt="Photo de profil de Paul Quentin Ondoa">
+        </div>
+        <div class="hero-content">
+          <h1>Bienvenue sur mon portfolio</h1>
+          <p>Développeur passionné en solutions web et mobiles.</p>
+          <div class="buttons">
+            <a href="https://www.linkedin.com/in/paul-quentin-ondoa-5352951b5/" target="_blank" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/Pablo5Berriz" target="_blank" class="btn"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- À propos -->
+    <section class="about">
+      <div class="about-content" style="max-width: 1500px; text-align: center">
+        <h3>À Propos</h3>
+        <p>
+            Je suis Paul Quentin, un développeur passionné, diplômé en développement web et mobile. 
+            Spécialisé dans le développement full-stack, je m’engage à créer des expériences utilisateur transparentes et des solutions backend robustes. 
+            Mon expertise couvre à la fois le développement frontend, où je conçois des interfaces intuitives et esthétiques, et le développement backend, où je construis des systèmes fiables et sécurisés pour répondre aux besoins les plus complexes.
+        </p>
+        <p>
+            Fort d'une solide maîtrise de technologies modernes telles que HTML, CSS, JavaScript, PHP, ASP.Net Core, C#, Node.js, Next.js, React, Laravel, React Native, Kotlin et Flutter, ainsi que des bases de données comme MySQL, MySQLi, MongoDB et PostgreSQL, je propose des solutions sur mesure alliant innovation, efficacité et qualité. 
+            Chaque projet que je réalise est une opportunité d'apporter une valeur ajoutée unique tout en repoussant les limites de la créativité et de la performance.
+        </p>
+        <p>
+            Toujours curieux et en quête d’innovation, je m’efforce d’explorer de nouveaux outils et techniques pour rester à l’avant-garde du paysage technologique en constante évolution. 
+            Mon objectif est de collaborer avec des clients et des partenaires pour transformer leurs idées en produits digitaux performants et impactants. 
+            Qu’il s’agisse de développer des sites vitrines, des applications mobiles ou des systèmes complexes, je m’efforce d’offrir des solutions adaptées et durables.
+        </p>
+        <a href="about.html" target="_blank" class="btn">En Savoir Plus</a>
+      </div>
+    </section>
+
+    <!-- Compétences -->
+    <section class="skills">
+      <div class="skills-category">
+          <h3>Développement web et mobile</h3>
+          <div class="skills-list">
+              <div class="skill"><i class="fab fa-html5"></i> HTML5</div>
+              <div class="skill"><i class="fab fa-css3-alt"></i> CSS3</div>
+              <div class="skill"><i class="fab fa-js-square"></i> JavaScript</div>
+              <div class="skill"><i class="fas fa-code"></i> PHP</div>
+              <div class="skill"><i class="fab fa-python"></i> Python</div>
+              <div class="skill"><i class="fab fa-csharp"></i> C#</div>
+              <div class="skill"><i class="fas fa-tools"></i> ASP.NET</div>
+              <div class="skill"><i class="fab fa-react"></i> React</div>
+              <div class="skill"><i class="fas fa-mobile-alt"></i> Flutter</div>
+              <div class="skill"><i class="fab fa-android"></i> Android</div>
+          </div>
+      </div>
+      <a href="skills.html" target="_blank" class="btn">En Savoir Plus</a>
+    </section>
+
+    <!-- Projets -->
+    <section class="projects">
+      <div>
+        <h3>Mes Projets</h3>
+        <div class="projects-grid">
+          <div class="project-card">
+            <img src="assets/Bilik_Farm.png" alt="Bilik Farm">
+            <h3>Bilik Farm</h3>
+            <p>Site web pour une ferme agricole. <br>Langages : PHP, Javascript, MySQL</p>
+          </div>
+          <div class="project-card">
+            <img src="assets/Weatherwise.png" alt="WeatherWise">
+            <h3>WeatherWise</h3>
+            <p>Application météo. <br>Langages : HTML, CSS, JavaScript, Python</p>
+          </div>
+          <div class="project-card">
+            <img src="assets/SLG_Tech.png" alt="SLG Tech">
+            <h3>SLG Tech</h3>
+            <p>Site e-commerce d'électronique. <br>Langages : HTML, CSS, Node.js</p>
+          </div>
+          <div class="project-card">
+            <img src="assets/cosmechic.png" alt="Cosmechic">
+            <h3>Cosmechic</h3>
+            <p>Site e-commerce de cosmétiques. <br>Langages : HTML, CSS, ASP.NET, SQL Server</p>
+          </div>
+        </div>
+      </div>
+      <a href="projets.html" target="_blank" class="btn" style="margin-top: 100px;">Voir tous les projets</a>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact">
+      <h2>Contactez-moi</h2>
+      <form id="contact-form">
+        <!-- Champ Nom -->
+        <label for="name">Nom :</label>
+        <input type="text" id="name" name="name" placeholder="Entrez votre nom" required />
+
+        <!-- Champ Email -->
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" placeholder="Sam@sam.ca" required />
+
+        <!-- Champ Téléphone -->
+        <label for="phone">Téléphone :</label>
+        <input type="tel" id="phone" name="phone" placeholder="(999) 999-9999" />
+
+        <!-- Champ Message -->
+        <label for="message">Message :</label>
+        <textarea id="message" name="message" placeholder="Votre message" rows="5" required></textarea>
+
+        <!-- Téléchargement de fichier -->
+        <label for="file" class="custum-file-upload">
+          <div class="icon">
+            <i class="fas fa-cloud-upload-alt"></i>
+          </div>
+          <div class="text">Cliquez pour télécharger un fichier</div>
+          <input id="file" name="file" type="file" />
+        </label>
+
+        <!-- Bouton Envoyer -->
+        <button type="submit">Envoyer</button>
+      </form>
+      <!-- Affichage du statut -->
+      <div id="form-status" style="margin-top: 20px; color: #ffffff;"></div>
+    </section>
+    
+    <script src="script.js"></script>
+  </body>
+</html>

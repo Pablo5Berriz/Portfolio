@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Projets - Paul Quentin Ondoa</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
+    <body>
+        <!-- Navigation -->
+        <header class="navbar">
+            <div class="logo">
+              <a href="index.html" style="margin-left: 50px;">Paul Quentin Ondoa</a>
+            </div>
+            <nav>
+                <ul>
+                  <li><a href="index.html">Accueil</a></li>
+                  <li><a href="about.html">À propos</a></li>
+                  <li><a href="skills.html">Compétences</a></li>
+                  <li><a href="experiences.html">Expériences</a></li>
+                  <li><a href="projects.html" class="active">Projets</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                  <li><a href="assets/CV_Paul_Quentin.pdf" download>Télécharger mon CV</a></li>           
+                </ul>
+            </nav>
+            <div class="hamburger-menu" onclick="toggleSidebar()">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+        </header>
+        
+        <!-- Sidebar -->
+        <div id="sidebar" class="sidebar">
+            <ul>
+              <li><a href="index.html" onclick="toggleSidebar()">Accueil</a></li>
+              <li><a href="about.html" onclick="toggleSidebar()">À propos</a></li>
+              <li><a href="skills.html" onclick="toggleSidebar()">Compétences</a></li>
+              <li><a href="experiences.html" onclick="toggleSidebar()">Expériences</a></li>
+              <li><a href="projects.html" onclick="toggleSidebar()">Projets</a></li>
+              <li><a href="contact.html" onclick="toggleSidebar()">Contact</a></li>
+              <li><a href="assets/CV_Paul_Quentin.pdf" download onclick="toggleSidebar()">Télécharger mon CV</a></li>
+            </ul>
+          </div>
+
+        <!-- Section Projets -->
+        <section class="projects">
+            <h2>Mes Projets</h2>
+            <div class="filter">
+                <button class="active" data-filter="all">Tout</button>
+                <button data-filter="web">Web-App</button>
+                <button data-filter="mobile">Application Mobile</button>
+                <button data-filter="desktop">Application de Bureau</button>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" data-category="web">
+                    <img src="assets/Camille_Emploi.png" alt="Camille Emploi">
+                    <h3>Camille Emploi</h3>
+                    <p>Langages : HTML, CSS, Javascript, Next.js, MySQL.</p>
+                    <a href="#" class="project-link info-btn" data-project="camille-emploi"><i class="fas fa-info-circle"></i></a>
+                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                    <a href="https://github.com/Pablo5Berriz" class="github-link"><i class="fab fa-github"></i></a>
+                </div>
+                
+                <div class="project-card" data-category="web">
+                    <img src="assets/Bilik_Farm.png" alt="Bilik Farm">
+                    <h3>Bilik Farm</h3>
+                    <p>Langages : PHP, Javascript, MySQL</p>
+                    <a href="#" class="project-link info-btn" data-project="bilik-farm"><i class="fas fa-info-circle"></i></a>
+                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                    <a href="https://github.com/Pablo5Berriz" class="github-link"><i class="fab fa-github"></i></a>
+                </div>
+
+                <div class="project-card" data-category="web">
+                    <img src="assets/Garage_SLG.png" alt="Garage SLG">
+                    <h3>Garage SLG</h3>
+                    <p>Langages : HTML, CSS, JavaScript, Node.js, MySQL</p>
+                    <a href="#" class="project-link info-btn" data-project="garage-slg"><i class="fas fa-info-circle"></i></a>
+                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                    <a href="https://github.com/Pablo5Berriz" class="github-link"><i class="fab fa-github"></i></a>
+                </div>
+
+                <div class="project-card" data-category="web">
+                    <img src="assets/Infotech_Solution.png" alt="Infotech Solutions">
+                    <h3>Infotech Solutions</h3>
+                    <p>Langages : PHP, JavaScript, MySQL</p>
+                    <a href="#" class="project-link info-btn" data-project="infotech-solutions"><i class="fas fa-info-circle"></i></a>
+                    <a href="https://www.infotechsolutionsonline.com/" class="project-link"><i class="fas fa-link"></i></a>
+                    <a href="https://github.com/Pablo5Berriz" class="github-link"><i class="fab fa-github"></i></a>
+                </div>
+
+                <div class="project-card" data-category="web">
+                    <img src="assets/Weatherwise.png" alt="WeatherWise">
+                    <h3>WeatherWise</h3>
+                    <p>Langages : HTML, CSS, JavaScript, Python</p>
+                    <a href="#" class="project-link info-btn" data-project="weatherwise"><i class="fas fa-info-circle"></i></a>
+                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                    <a href="https://github.com/Pablo5Berriz" class="github-link"><i class="fab fa-github"></i></a>
+                </div>
+
+                <div class="project-card" data-category="web">
+                    <img src="assets/SLG_Tech.png" alt="SLG Tech">
+                    <h3>SLG Tech</h3>
+                    <p>Langages : HTML, CSS, Node.js</p>
+                    <a href="#" class="project-link info-btn" data-project="slg-tech"><i class="fas fa-info-circle"></i></a>
+                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                    <a href="https://github.com/Pablo5Berriz" class="github-link"><i class="fab fa-github"></i></a>
+                </div>
+
+                <div class="project-card" data-category="mobile">
+                    <img src="assets/Eduquiz.png" alt="EduQuiz">
+                    <h3>EduQuiz</h3>
+                    <p>Langage : Flutter</p>
+                    <a href="#" class="project-link info-btn" data-project="eduquiz"><i class="fas fa-info-circle"></i></a>
+                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                    <a href="https://github.com/Pablo5Berriz" class="github-link"><i class="fab fa-github"></i></a>
+                </div>
+
+                <div class="project-card" data-category="web">
+                    <img src="assets/cosmechic.png" alt="Cosmechic">
+                    <h3>Cosmechic</h3>
+                    <p>Langages : HTML, CSS, ASP.NET, SQL Server</p>
+                    <a href="#" class="project-link info-btn" data-project="cosmechic"><i class="fas fa-info-circle"></i></a>
+                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                    <a href="https://github.com/Pablo5Berriz" class="github-link"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal -->
+        <div id="project-modal" class="modal">
+            <div class="modal-content">
+                <img id="project-image" src="" alt="">
+                <div class="modal-text">
+                <span class="close">&times;</span>
+                <h3 id="project-title">Titre du Projet</h3>
+                <p id="project-description">Description du projet.</p>
+                <p><strong>Langages utilisés :</strong> <span id="project-languages"></span></p>
+                <p><strong>Réalisé par :</strong> <span id="project-group"></span></p>
+                <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                <a href="https://github.com/Pablo5Berriz" class="github-link"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+
+        <script>
+            function toggleSidebar() {
+                const sidebar = document.getElementById("sidebar");
+                sidebar.classList.toggle("active");
+            }
+
+            // Filtres
+            document.querySelectorAll('.filter button').forEach(button => {
+                button.addEventListener('click', () => {
+                    const filter = button.dataset.filter;
+              
+                    document.querySelectorAll('.project-card').forEach(card => {
+                        card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+                    });
+              
+                    document.querySelectorAll('.filter button').forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                });
+            });
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const modal = document.getElementById("project-modal");
+                const modalContent = {
+                    title: document.getElementById("project-title"),
+                    image: document.getElementById("project-image"),
+                    description: document.getElementById("project-description"),
+                    languages: document.getElementById("project-languages"),
+                    group: document.getElementById("project-group"),
+                };
+                const closeModal = document.querySelector(".close");
+            
+                // Données des projets
+                const projectData = {
+                    "camille-emploi": {
+                        title: "Camille Emploi",
+                        image: "assets/Camille.png",
+                        description: "Une plateforme moderne et intuitive pour aider les chercheurs d'emploi à trouver des opportunités correspondant à leurs compétences. Elle intègre des fonctionnalités de filtrage avancé et de gestion de candidatures.",
+                        languages: "HTML, CSS, Javascript, Next.js, MySQL",
+                        group: "Paul Quentin Ondoa",
+                    },
+                    "bilik-farm": {
+                        title: "Bilik Farm",
+                        image: "assets/Farm.png",
+                        description: "Application web pour la gestion des activités agricoles, y compris la planification des cultures, la gestion des stocks et le suivi des performances des fermes. Conçue pour les exploitants agricoles modernes.",
+                        languages: "PHP, Javascript, MySQL",
+                        group: "Paul Quentin Ondoa",
+                    },
+                    "garage-slg": {
+                        title: "Garage SLG",
+                        image: "assets/Garage_SLG.png",
+                        description: "Plateforme web dédiée à la gestion des services d'un garage automobile, y compris la prise de rendez-vous, la facturation et la gestion des stocks de pièces détachées.",
+                        languages: "HTML, CSS, Javascript, Node.js, MySQL",
+                        group: "Paul Quentin Ondoa",
+                    },
+                    "infotech-solutions": {
+                        title: "Infotech Solutions",
+                        image: "assets/Infotech.png",
+                        description: "Un site web pour une entreprise de solutions informatiques, présentant ses services informatiques, son équipe et ses réalisations. Design élégant et interface utilisateur conviviale.",
+                        languages: "PHP, JavaScript, MySQL",
+                        group: "Paul Quentin Ondoa",
+                    },
+                    "weatherwise": {
+                        title: "WeatherWise",
+                        image: "assets/Weatherwise.png",
+                        description: "Application web qui fournit des informations météorologiques détaillées et des prévisions personnalisées. Idéale pour les professionnels et amateurs des données climatiques.",
+                        languages: "HTML, CSS, Javascript, Python",
+                        group: "Paul Quentin Ondoa",
+                    },
+                    "slg-tech": {
+                        title: "SLG Tech",
+                        image: "assets/Tech.png",
+                        description: "Plateforme e-commerce pour la vente de produits technologiques. Comprend une gestion avancée des commandes et des paiements.",
+                        languages: "HTML, CSS, Node.js",
+                        group: "Paul Quentin Ondoa",
+                    },
+                    "eduquiz": {
+                        title: "EduQuiz",
+                        image: "assets/Eduquiz.png",
+                        description: "Application éducative mobile pour les élèves, offrant des quiz interactifs et des fonctionnalités de suivi des progrès. Conçue pour améliorer l'apprentissage de manière ludique.",
+                        languages: "Flutter",
+                        group: "Paul Quentin Ondoa",
+                    },
+                    "cosmechic": {
+                        title: "Cosmechic",
+                        image: "assets/Cosmechi.png",
+                        description: "Boutique en ligne spécialisée dans la vente de produits cosmétiques. Dispose d'une interface moderne avec gestion des stocks et des paiements sécurisés.",
+                        languages: "HTML, CSS, ASP.NET, SQL Server",
+                        group: "Paul Quentin Ondoa",
+                    },
+                };
+            
+                // Ouvrir le modal
+                document.querySelectorAll(".info-btn").forEach((btn) => {
+                    btn.addEventListener("click", function (e) {
+                        e.preventDefault();
+                        const projectKey = btn.getAttribute("data-project");
+                        const project = projectData[projectKey];
+                        if (project) {
+                            modalContent.title.textContent = project.title;
+                            modalContent.image.src = project.image;
+                            modalContent.description.textContent = project.description;
+                            modalContent.languages.textContent = project.languages;
+                            modalContent.group.textContent = project.group;
+                            modal.style.display = "block";
+                        }
+                    });
+                });
+            
+                // Fermer le modal
+                closeModal.addEventListener("click", function () {
+                    modal.style.display = "none";
+                });
+            
+                window.addEventListener("click", function (e) {
+                    if (e.target === modal) {
+                        modal.style.display = "none";
+                    }
+                });
+            });
+        </script>
+        <script src="script.js"></script>
+    </body>
+</html>

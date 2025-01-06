@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact - Portfolio</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    </head>
+    <body>
+        <!-- Navigation -->
+        <header class="navbar">
+            <div class="logo">
+              <a href="index.html" style="margin-left: 50px;">Paul Quentin Ondoa</a>
+            </div>
+            <nav>
+                <ul>
+                  <li><a href="index.html">Accueil</a></li>
+                  <li><a href="about.html">À propos</a></li>
+                  <li><a href="skills.html">Compétences</a></li>
+                  <li><a href="experiences.html">Expériences</a></li>
+                  <li><a href="projects.html">Projets</a></li>
+                  <li><a href="contact.html" class="active">Contact</a></li>
+                  <li><a href="assets/CV_Paul_Quentin.pdf" download>Télécharger mon CV</a></li>           
+                </ul>
+            </nav>
+            <div class="hamburger-menu" onclick="toggleSidebar()">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+        </header>
+      
+        <!-- Sidebar -->
+        <div id="sidebar" class="sidebar">
+          <ul>
+            <li><a href="index.html" onclick="toggleSidebar()">Accueil</a></li>
+            <li><a href="about.html" onclick="toggleSidebar()">À propos</a></li>
+            <li><a href="skills.html" onclick="toggleSidebar()">Compétences</a></li>
+            <li><a href="experiences.html" onclick="toggleSidebar()">Expériences</a></li>
+            <li><a href="projects.html" onclick="toggleSidebar()">Projets</a></li>
+            <li><a href="contact.html" onclick="toggleSidebar()">Contact</a></li>
+            <li><a href="assets/CV_Paul_Quentin.pdf" download onclick="toggleSidebar()">Télécharger mon CV</a></li>
+          </ul>
+        </div>
+
+        <!-- Section Contact -->
+    <section class="contact">
+        <h2>Discutons ensemble de quelque chose de <span class="highlight">cool.</span></h2>
+        <ul>
+            <li><i class="fas fa-envelope"></i> Paulquentin4@gmail.com</li>
+            <li><i class="fas fa-phone"></i> (514)-208-3644</li>
+            <li><i class="fas fa-map-marker-alt"></i> Saint-Louis de Gonzague, Québec, Canada</li>
+        </ul>
+        <div class="buttons">
+            <a href="https://www.linkedin.com/in/paul-quentin-ondoa-5352951b5/" target="_blank" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/Pablo5Berriz" target="_blank" class="btn"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+        <form id="contact-form">
+          <!-- Champ Nom -->
+          <label for="name">Nom :</label>
+          <input type="text" id="name" name="name" placeholder="Entrez votre nom" required />
+  
+          <!-- Champ Email -->
+          <label for="email">Email :</label>
+          <input type="email" id="email" name="email" placeholder="Sam@sam.ca" required />
+  
+          <!-- Champ Téléphone -->
+          <label for="phone">Téléphone :</label>
+          <input type="tel" id="phone" name="phone" placeholder="(999) 999-9999" />
+  
+          <!-- Champ Message -->
+          <label for="message">Message :</label>
+          <textarea id="message" name="message" placeholder="Votre message" rows="5" required></textarea>
+  
+          <!-- Téléchargement de fichier -->
+          <label for="file" class="custum-file-upload">
+            <div class="icon">
+              <i class="fas fa-cloud-upload-alt"></i>
+            </div>
+            <div class="text">Cliquez pour télécharger un fichier</div>
+            <input id="file" name="file" type="file" />
+          </label>
+  
+          <!-- Bouton Envoyer -->
+          <button type="submit">Envoyer</button>
+        </form>
+        <!-- Affichage du statut -->
+        <div id="form-status" style="margin-top: 20px; color: #ffffff;"></div>
+      </section>
+      
+    <script src="script.js"></script>
+  </body>
+</html>
