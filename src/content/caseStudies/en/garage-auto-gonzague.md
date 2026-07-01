@@ -17,8 +17,8 @@ stack: [Next.js 14, TypeScript, Prisma, PostgreSQL, Vonage, Resend]
 status: production
 githubUrl: null
 demoUrl: null
-image: null
-imagePlaceholder: true
+image: /images/projects/garage-auto-gonzague.png
+imagePlaceholder: false
 order: 5
 ---
 

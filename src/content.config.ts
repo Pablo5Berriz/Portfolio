@@ -1,7 +1,7 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
-const badge = z.enum(['web', 'mobile', 'saas', 'backend', 'uiux']);
+const badge = z.enum(['web', 'mobile', 'saas', 'backend', 'uiux', 'infra']);
 const status = z.enum(['completed', 'production', 'progress']);
 const lang = z.enum(['fr', 'en']);
 

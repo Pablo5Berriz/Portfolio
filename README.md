@@ -79,15 +79,53 @@ sitemap.
 
 ## Contenu des projets
 
-- **Études de cas récentes** (`src/content/caseStudies/`) : projets en avant
-  avec description problème/solution/stack. Plusieurs utilisent un bloc
-  "capture à venir" (`imagePlaceholder: true`) en attente de vraies captures
-  d'écran — voir la liste des actions manuelles ci-dessous.
-- **Projets antérieurs** (`src/content/legacyProjects/`) : SLG Tech, Bilik
-  Farm, WeatherWise, Cosmechic — gardés en format condensé comme jalons de
-  progression, pas comme reflet du niveau actuel.
+- **Études de cas** (`src/content/caseStudies/`) : projets présentés en
+  format complet (problème/fonctionnalités/stack/statut). Certains utilisent
+  un bloc "capture à venir" (`imagePlaceholder: true`) en attente d'une vraie
+  image — voir la liste des actions manuelles ci-dessous.
+- **Projets antérieurs** (`src/content/legacyProjects/`) : format condensé,
+  pour les projets dont on a moins de profondeur technique (actuellement
+  Cosmechic, WeatherWise).
 - Un projet sans lien GitHub public vérifié n'affiche jamais de bouton "Voir
   le dépôt" — jamais de lien mort ou de `href="#"`.
+
+### Ajouter un nouveau projet (carte)
+
+Aucune modification de code n'est nécessaire pour ajouter un projet : il
+suffit de créer une paire de fichiers Markdown (un par langue).
+
+**Étude de cas complète** — créer :
+`src/content/caseStudies/fr/mon-projet.md` et `src/content/caseStudies/en/mon-projet.md`
+
+```markdown
+---
+slug: mon-projet
+lang: fr
+title: Mon Projet
+badges: [web]        # web | mobile | saas | backend | uiux | infra (plusieurs possibles)
+problem: >-
+  Le problème concret que ce projet résout.
+features:
+  - Fonctionnalité clé 1
+  - Fonctionnalité clé 2
+stack: [Technologie 1, Technologie 2]
+status: progress      # completed | production | progress
+githubUrl: null        # ou une URL de dépôt public réel
+demoUrl: null           # ou une URL de démo
+image: null             # ou /images/projects/mon-projet.jpg (voir public/images/projects/)
+imagePlaceholder: true  # false dès qu'une vraie image est fournie
+order: 12               # position d'affichage (ordre croissant)
+---
+
+Un paragraphe optionnel décrivant le projet plus en détail.
+```
+
+**Projet antérieur (condensé)** — même principe dans
+`src/content/legacyProjects/{fr,en}/mon-projet.md`, avec les champs `summary`
+et `stack` à la place de `problem`/`features`/`status`.
+
+Ne jamais inventer de stack, de statut ou de lien GitHub : laisser `null` ou
+demander l'information plutôt que d'affirmer quelque chose de non vérifié.
 
 ## Sécurité — actions manuelles restantes (à faire par vous)
 
@@ -97,10 +135,9 @@ Ces actions ne peuvent pas être effectuées depuis le code :
    EmailJS (Account → Security → Allowed origins), pour que la clé exposée
    côté client (`iP6iXrt0fsKUx7RP0`) ne fonctionne que depuis votre domaine
    de production.
-2. **Fournir les captures d'écran manquantes** pour les projets récents
-   (Garage Auto Gonzague, Affichage TV atelier, Business plan Garage
-   Saint-Louis, Logigest, EduQuiz, Streamr & Aura) — actuellement en
-   placeholder "capture à venir".
+2. **Fournir les captures d'écran manquantes** pour les projets encore en
+   placeholder "capture à venir" (voir `imagePlaceholder: true` dans
+   `src/content/caseStudies/`).
 3. **DNS et hébergement** : pointer le domaine réel vers le conteneur
    Nginx/Caddy derrière Traefik, puis mettre à jour `SITE_URL` dans
    `astro.config.mjs`.

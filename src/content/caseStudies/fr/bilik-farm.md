@@ -13,7 +13,7 @@ stack: [PHP, JavaScript, MySQL]
 status: completed
 githubUrl: null
 demoUrl: null
-image: /images/projects/bilik-farm.png
+image: /images/projects/bilik-farm.jpg
 imagePlaceholder: false
 order: 8
 ---
