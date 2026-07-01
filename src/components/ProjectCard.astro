@@ -1,0 +1,203 @@
+---
+import { Icon } from 'astro-icon/components';
+import { useTranslations, type Locale } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  badges: string[];
+  problem: string;
+  features: string[];
+  stack: string[];
+  status: 'completed' | 'production' | 'progress';
+  githubUrl: string | null;
+  demoUrl: string | null;
+  image: string | null;
+  imagePlaceholder: boolean;
+}
+
+const {
+  locale,
+  title,
+  badges,
+  problem,
+  features,
+  stack,
+  status,
+  githubUrl,
+  demoUrl,
+  image,
+  imagePlaceholder,
+} = Astro.props;
+
+const t = useTranslations(locale);
+
+const statusKey = {
+  completed: 'projects.status.completed',
+  production: 'projects.status.production',
+  progress: 'projects.status.progress',
+} as const;
+---
+
+<article class="project-card card" data-categories={badges.join(' ')}>
+  <div class="project-card__media">
+    {
+      image && !imagePlaceholder ? (
+        <img src={image} alt={title} loading="lazy" width="640" height="360" />
+      ) : (
+        <div class="project-card__placeholder" role="img" aria-label={t('projects.placeholder.label')}>
+          <Icon name="lucide:image" size={28} />
+          <span>{t('projects.placeholder.label')}</span>
+        </div>
+      )
+    }
+  </div>
+
+  <div class="project-card__body">
+    <div class="project-card__badges">
+      {badges.map((b) => <span class="badge">{b}</span>)}
+      <span class="badge badge-muted">{t(statusKey[status])}</span>
+    </div>
+
+    <h3>{title}</h3>
+
+    <p class="project-card__problem">
+      <strong>{t('projects.card.problem')} —</strong> {problem}
+    </p>
+
+    <ul class="project-card__features">
+      {features.map((f) => <li>{f}</li>)}
+    </ul>
+
+    <ul class="project-card__stack" aria-label={t('projects.card.stack')}>
+      {stack.map((s) => <li>{s}</li>)}
+    </ul>
+
+    <div class="project-card__links">
+      {githubUrl && (
+        <a class="btn btn-secondary" href={githubUrl} target="_blank" rel="noopener noreferrer">
+          <Icon name="lucide:github" size={16} />
+          {t('cta.viewRepo')}
+        </a>
+      )}
+      {demoUrl && (
+        <a class="btn btn-secondary" href={demoUrl} target="_blank" rel="noopener noreferrer">
+          <Icon name="lucide:external-link" size={16} />
+          {t('cta.viewDemo')}
+        </a>
+      )}
+      {!githubUrl && !demoUrl && (
+        <span class="project-card__private">
+          <Icon name="lucide:lock" size={14} />
+          {t('projects.noGithub.label')}
+        </span>
+      )}
+    </div>
+  </div>
+</article>
+
+<style>
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    overflow: clip;
+  }
+
+  .project-card__media {
+    aspect-ratio: 16 / 9;
+    background: var(--color-bg-inset);
+  }
+
+  .project-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .project-card__placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    color: var(--color-text-faint);
+    font-size: var(--text-sm);
+  }
+
+  .project-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-5);
+  }
+
+  .project-card__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .project-card__problem {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+  }
+
+  .project-card__problem strong {
+    color: var(--color-text);
+  }
+
+  .project-card__features {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .project-card__features li {
+    padding-left: var(--space-4);
+    position: relative;
+  }
+
+  .project-card__features li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--color-accent);
+  }
+
+  .project-card__stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    font-size: var(--text-xs);
+    color: var(--color-text-faint);
+  }
+
+  .project-card__stack li {
+    padding: var(--space-1) var(--space-2);
+    background: var(--color-bg-inset);
+    border-radius: var(--radius-sm);
+  }
+
+  .project-card__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: var(--space-2);
+  }
+
+  .project-card__private {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-text-faint);
+  }
+</style>

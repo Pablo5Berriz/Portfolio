@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import type { Locale } from '../../i18n/utils';
+import { about } from '../../i18n/content/about';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const copy = about[locale];
+
+const metaDescription = {
+  fr: "À propos de Paul Quentin Ondoa : parcours, formation et stack technique — de la sécurisation d'une plateforme e-commerce à la conformité Loi 25.",
+  en: "About Paul Quentin Ondoa: background, education and technical stack — from e-commerce platform security to Law 25 compliance.",
+}[locale];
+---
+
+<BaseLayout locale={locale} title={copy.title} description={metaDescription} path="/about">
+  <section class="section">
+    <div class="container about__grid">
+      <img class="about__portrait" src="/images/profile.jpg" alt="Paul Quentin Ondoa" width="320" height="320" />
+      <div class="about__bio">
+        <h1>{copy.title}</h1>
+        {copy.bio.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>{copy.educationTitle}</h2>
+      <ul class="timeline">
+        {
+          copy.education.map((item) => (
+            <li class="timeline__item card">
+              <img src={item.logo} alt="" width="56" height="56" loading="lazy" />
+              <div>
+                <h3>{item.institution}</h3>
+                <p class="timeline__period">{item.period}</p>
+                <p>{item.program}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>{copy.certificationsTitle}</h2>
+      <ul class="timeline">
+        {
+          copy.certifications.map((item) => (
+            <li class="timeline__item card">
+              <img src={item.logo} alt="" width="56" height="56" loading="lazy" />
+              <div>
+                <h3>{item.name}</h3>
+                <p class="timeline__period">
+                  {item.issuer} — {item.date}
+                </p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about__grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-7);
+    align-items: start;
+  }
+
+  .about__portrait {
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    object-fit: cover;
+  }
+
+  .about__bio {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .about__bio p {
+    color: var(--color-text-muted);
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-top: var(--space-5);
+  }
+
+  .timeline__item {
+    display: flex;
+    gap: var(--space-4);
+    align-items: center;
+    padding: var(--space-4) var(--space-5);
+  }
+
+  .timeline__item img {
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+  }
+
+  .timeline__period {
+    color: var(--color-text-faint);
+    font-size: var(--text-sm);
+  }
+
+  @media (max-width: 640px) {
+    .about__grid {
+      grid-template-columns: 1fr;
+    }
+    .about__portrait {
+      max-width: 200px;
+    }
+  }
+</style>

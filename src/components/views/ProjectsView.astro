@@ -1,0 +1,154 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../ProjectCard.astro';
+import LegacyProjectCard from '../LegacyProjectCard.astro';
+import { useTranslations, type Locale } from '../../i18n/utils';
+import type { UiKey } from '../../i18n/ui';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const allCaseStudies = await getCollection('caseStudies');
+const caseStudies = allCaseStudies
+  .filter((entry) => entry.data.lang === locale)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const allLegacy = await getCollection('legacyProjects');
+const legacyProjects = allLegacy
+  .filter((entry) => entry.data.lang === locale)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const filters: { key: UiKey; value: string }[] = [
+  { key: 'projects.filter.all', value: 'all' },
+  { key: 'projects.filter.web', value: 'web' },
+  { key: 'projects.filter.mobile', value: 'mobile' },
+  { key: 'projects.filter.saas', value: 'saas' },
+  { key: 'projects.filter.backend', value: 'backend' },
+  { key: 'projects.filter.uiux', value: 'uiux' },
+  { key: 'projects.filter.infra', value: 'infra' },
+];
+
+const title = { fr: 'Projets', en: 'Projects' }[locale];
+const metaDescription = {
+  fr: 'Études de cas et projets de Paul Quentin Ondoa : CRM Next.js pour garage automobile, SaaS agricole avec agents IA, plateforme éducative bilingue.',
+  en: "Case studies and projects by Paul Quentin Ondoa: Next.js CRM for an auto shop, agricultural SaaS with AI agents, bilingual education platform.",
+}[locale];
+---
+
+<BaseLayout locale={locale} title={title} description={metaDescription} path="/projects">
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">{t('projects.section.recent.eyebrow')}</p>
+        <h1>{t('projects.section.recent.title')}</h1>
+      </div>
+
+      <div class="filter" role="group" aria-label={title}>
+        {
+          filters.map((f, i) => (
+            <button type="button" class="btn btn-secondary filter-btn" data-filter={f.value} aria-pressed={i === 0 ? 'true' : 'false'}>
+              {t(f.key)}
+            </button>
+          ))
+        }
+      </div>
+
+      <div class="projects-grid" id="projects-grid">
+        {
+          caseStudies.map((entry) => (
+            <ProjectCard
+              locale={locale}
+              title={entry.data.title}
+              badges={entry.data.badges}
+              problem={entry.data.problem}
+              features={entry.data.features}
+              stack={entry.data.stack}
+              status={entry.data.status}
+              githubUrl={entry.data.githubUrl}
+              demoUrl={entry.data.demoUrl}
+              image={entry.data.image}
+              imagePlaceholder={entry.data.imagePlaceholder}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">{t('projects.section.timeline.eyebrow')}</p>
+        <h2>{t('projects.section.timeline.title')}</h2>
+        <p class="lede">{t('projects.section.timeline.lede')}</p>
+      </div>
+      <div class="legacy-grid">
+        {
+          legacyProjects.map((entry) => (
+            <LegacyProjectCard
+              locale={locale}
+              title={entry.data.title}
+              badges={entry.data.badges}
+              summary={entry.data.summary}
+              stack={entry.data.stack}
+              githubUrl={entry.data.githubUrl}
+              image={entry.data.image}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-bottom: var(--space-6);
+  }
+
+  .filter-btn[aria-pressed='true'] {
+    background: var(--color-accent);
+    color: var(--color-accent-contrast);
+    border-color: var(--color-accent);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .legacy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-5);
+  }
+</style>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const cards = document.querySelectorAll<HTMLElement>('#projects-grid .project-card');
+
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const filter = button.dataset.filter ?? 'all';
+
+      buttons.forEach((b) => b.setAttribute('aria-pressed', 'false'));
+      button.setAttribute('aria-pressed', 'true');
+
+      cards.forEach((card) => {
+        const categories = card.dataset.categories?.split(' ') ?? [];
+        const show = filter === 'all' || categories.includes(filter);
+        card.style.display = show ? '' : 'none';
+      });
+    });
+  });
+</script>
