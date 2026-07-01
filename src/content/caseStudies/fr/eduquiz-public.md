@@ -2,13 +2,14 @@
 slug: eduquiz-public
 lang: fr
 title: EduQuiz
-badges: [saas, mobile]
+badges: [mobile]
 problem: >-
-  Les élèves québécois ont besoin d'un outil de révision bilingue aligné sur
-  le programme du Ministère de l'Éducation (MEQ).
+  Les élèves québécois du primaire 3 au secondaire 5 ont besoin d'un outil de
+  révision mobile, bilingue et aligné sur le programme du Ministère de
+  l'Éducation (MEQ).
 features:
-  - Plateforme éducative bilingue FR/EN
-  - Contenu aligné sur le programme du MEQ
+  - Application mobile éducative couvrant le primaire 3 au secondaire 5
+  - Contenu bilingue FR/EN aligné sur le programme du MEQ
   - 122 écrans inventoriés et conçus
   - Infrastructure auto-hébergée sur Proxmox
 stack: [TypeScript, Proxmox]
@@ -17,7 +18,7 @@ githubUrl: https://github.com/Pablo5Berriz/eduquiz
 demoUrl: null
 image: null
 imagePlaceholder: true
-order: 5
+order: 2
 ---
 
-EduQuiz est une plateforme éducative bilingue destinée aux élèves québécois, avec un contenu aligné sur le programme du Ministère de l'Éducation. Le projet compte 122 écrans inventoriés et est déployé sur une infrastructure Proxmox auto-hébergée, de la conception à l'hébergement.
+Application mobile éducative québécoise d'apprentissage des leçons du primaire 3 au secondaire 5, avec un contenu bilingue aligné sur le programme du Ministère de l'Éducation. Le projet compte 122 écrans inventoriés et est déployé sur une infrastructure Proxmox auto-hébergée, de la conception à l'hébergement.

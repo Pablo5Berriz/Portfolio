@@ -3,9 +3,9 @@ slug: cosmechic
 lang: fr
 title: Cosmechic
 badges: [web]
-summary: Site e-commerce de produits cosmétiques.
+summary: Boutique en ligne de produits cosmétiques pour Afro.
 stack: [HTML, CSS, ASP.NET, SQL Server]
 githubUrl: https://github.com/Pablo5Berriz/Cosmechic
 image: /images/projects/cosmechic.png
-order: 4
+order: 1
 ---

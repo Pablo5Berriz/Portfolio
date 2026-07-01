@@ -2,13 +2,14 @@
 slug: eduquiz-public
 lang: en
 title: EduQuiz
-badges: [saas, mobile]
+badges: [mobile]
 problem: >-
-  Quebec students need a bilingual revision tool aligned with the Ministry
-  of Education's (MEQ) curriculum.
+  Quebec students from grade 5 (primaire 3) through grade 11 (secondaire 5)
+  need a mobile revision tool, bilingual and aligned with the Ministry of
+  Education's (MEQ) curriculum.
 features:
-  - Bilingual FR/EN educational platform
-  - Content aligned with the MEQ curriculum
+  - Educational mobile app covering grade 5 through grade 11
+  - Bilingual FR/EN content aligned with the MEQ curriculum
   - 122 screens inventoried and designed
   - Self-hosted infrastructure on Proxmox
 stack: [TypeScript, Proxmox]
@@ -17,7 +18,7 @@ githubUrl: https://github.com/Pablo5Berriz/eduquiz
 demoUrl: null
 image: null
 imagePlaceholder: true
-order: 5
+order: 2
 ---
 
-EduQuiz is a bilingual educational platform for Quebec students, with content aligned to the Ministry of Education's curriculum. The project spans 122 inventoried screens and is deployed on self-hosted Proxmox infrastructure, from design through hosting.
+A Quebec educational mobile app for learning lessons from grade 5 (primaire 3) through grade 11 (secondaire 5), with bilingual content aligned to the Ministry of Education's curriculum. The project spans 122 inventoried screens and is deployed on self-hosted Proxmox infrastructure, from design through hosting.
