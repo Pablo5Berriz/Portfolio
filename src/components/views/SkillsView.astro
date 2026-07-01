@@ -1,0 +1,74 @@
+---
+import { Icon } from 'astro-icon/components';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import type { Locale } from '../../i18n/utils';
+import { skills } from '../../i18n/content/skills';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const copy = skills[locale];
+
+const metaDescription = {
+  fr: 'Compétences techniques de Paul Quentin Ondoa : développement web/mobile, bases de données, infrastructure et support technique.',
+  en: "Paul Quentin Ondoa's technical skills: web/mobile development, databases, infrastructure and technical support.",
+}[locale];
+---
+
+<BaseLayout locale={locale} title={copy.title} description={metaDescription} path="/skills">
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h1>{copy.title}</h1>
+        <p class="lede">{copy.lede}</p>
+      </div>
+
+      {
+        copy.categories.map((category) => (
+          <div class="skills-category">
+            <h2>{category.title}</h2>
+            <ul class="skills-list">
+              {category.skills.map((skill) => (
+                <li class="card skill-pill">
+                  <Icon name={skill.icon} size={20} />
+                  <span>{skill.name}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .skills-category {
+    margin-bottom: var(--space-7);
+  }
+
+  .skills-category h2 {
+    margin-bottom: var(--space-4);
+  }
+
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .skill-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--text-sm);
+    font-weight: 600;
+  }
+
+  .skill-pill :global(svg) {
+    color: var(--color-accent);
+  }
+</style>

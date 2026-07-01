@@ -1,0 +1,24 @@
+---
+// Static entry point: redirects to the visitor's preferred locale.
+// No server available to inspect Accept-Language at request time (static hosting),
+// so preference is resolved client-side from a stored choice, then browser language.
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0; url=/fr" />
+    <title>Paul Quentin Ondoa — Portfolio</title>
+    <script is:inline>
+      (function () {
+        var stored = localStorage.getItem('preferred-locale');
+        var locale = stored === 'en' || stored === 'fr' ? stored : navigator.language.startsWith('en') ? 'en' : 'fr';
+        window.location.replace('/' + locale);
+      })();
+    </script>
+  </head>
+  <body>
+    <p><a href="/fr">Continuer en français</a> · <a href="/en">Continue in English</a></p>
+  </body>
+</html>

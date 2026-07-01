@@ -1,0 +1,204 @@
+---
+import { Icon } from 'astro-icon/components';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../ProjectCard.astro';
+import { useTranslations, localizePath, type Locale } from '../../i18n/utils';
+import { home } from '../../i18n/content/home';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const copy = home[locale];
+
+const allCaseStudies = await getCollection('caseStudies');
+const featured = allCaseStudies
+  .filter((entry) => entry.data.lang === locale)
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 3);
+
+const metaDescription = {
+  fr: 'Portfolio de Paul Quentin Ondoa, développeur full-stack : CRM Next.js/PostgreSQL, sécurisation de plateformes e-commerce, orchestration multi-agents IA.',
+  en: 'Portfolio of Paul Quentin Ondoa, full-stack developer: Next.js/PostgreSQL CRM, e-commerce platform security remediation, multi-agent AI orchestration.',
+}[locale];
+---
+
+<BaseLayout locale={locale} title={t('nav.home')} description={metaDescription} path="/">
+  <section class="section hero">
+    <div class="container hero__grid">
+      <div class="hero__content">
+        <p class="eyebrow">{copy.heroEyebrow}</p>
+        <h1>{copy.heroTitle}</h1>
+        <p class="lede">{copy.heroSubtitle}</p>
+        <div class="hero__actions">
+          <a class="btn btn-primary" href={localizePath(locale, '/projects')}>
+            {t('cta.viewProjects')}
+          </a>
+          <a class="btn btn-secondary" href={localizePath(locale, '/contact')}>
+            {t('cta.contact')}
+          </a>
+        </div>
+      </div>
+      <div class="hero__portrait">
+        <img src="/images/profile.jpg" alt="Paul Quentin Ondoa" width="420" height="420" />
+      </div>
+    </div>
+
+    <div class="container hero__highlights">
+      {
+        copy.highlights.map((h) => (
+          <div class="hero__highlight card">
+            <span class="hero__highlight-value">{h.value}</span>
+            <span class="hero__highlight-label">{h.label}</span>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section expertise" aria-labelledby="expertise-title">
+    <div class="container expertise__inner card">
+      <Icon name="lucide:git-branch" size={32} />
+      <div>
+        <p class="eyebrow">{t('expertise.eyebrow')}</p>
+        <h2 id="expertise-title">{t('expertise.title')}</h2>
+        <p class="lede">{copy.expertiseDescription}</p>
+        <a class="btn btn-secondary" href={localizePath(locale, '/projects')}>
+          {t('cta.learnMore')}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">{t('projects.section.recent.eyebrow')}</p>
+        <h2>{copy.projectsTeaserTitle}</h2>
+        <p class="lede">{copy.projectsTeaserLede}</p>
+      </div>
+      <div class="projects-grid">
+        {
+          featured.map((entry) => (
+            <ProjectCard
+              locale={locale}
+              title={entry.data.title}
+              badges={entry.data.badges}
+              problem={entry.data.problem}
+              features={entry.data.features}
+              stack={entry.data.stack}
+              status={entry.data.status}
+              githubUrl={entry.data.githubUrl}
+              demoUrl={entry.data.demoUrl}
+              image={entry.data.image}
+              imagePlaceholder={entry.data.imagePlaceholder}
+            />
+          ))
+        }
+      </div>
+      <div class="projects-cta">
+        <a class="btn btn-secondary" href={localizePath(locale, '/projects')}>
+          {t('cta.viewProjects')}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero__grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: var(--space-8);
+    align-items: center;
+  }
+
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .hero__portrait img {
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  .hero__highlights {
+    margin-top: var(--space-8);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .hero__highlight {
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .hero__highlight-value {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--color-accent);
+  }
+
+  .hero__highlight-label {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .expertise__inner {
+    display: flex;
+    gap: var(--space-5);
+    padding: var(--space-7);
+    align-items: flex-start;
+  }
+
+  .expertise__inner > :global(svg) {
+    flex-shrink: 0;
+    color: var(--color-accent);
+  }
+
+  .expertise__inner h2 {
+    margin-block: var(--space-2);
+  }
+
+  .expertise__inner .lede {
+    margin-bottom: var(--space-4);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .projects-cta {
+    margin-top: var(--space-7);
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (max-width: 860px) {
+    .hero__grid {
+      grid-template-columns: 1fr;
+    }
+    .hero__portrait {
+      order: -1;
+      max-width: 220px;
+    }
+  }
+</style>

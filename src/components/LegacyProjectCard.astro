@@ -1,0 +1,108 @@
+---
+import { Icon } from 'astro-icon/components';
+import { useTranslations, type Locale } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  badges: string[];
+  summary: string;
+  stack: string[];
+  githubUrl: string | null;
+  image: string | null;
+}
+
+const { locale, title, badges, summary, stack, githubUrl, image } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<article class="legacy-card card" data-categories={badges.join(' ')}>
+  {
+    image && (
+      <div class="legacy-card__media">
+        <img src={image} alt={title} loading="lazy" width="320" height="180" />
+      </div>
+    )
+  }
+  <div class="legacy-card__body">
+    <div class="legacy-card__badges">
+      {badges.map((b) => <span class="badge badge-muted">{b}</span>)}
+    </div>
+    <h4>{title}</h4>
+    <p>{summary}</p>
+    <ul class="legacy-card__stack">
+      {stack.map((s) => <li>{s}</li>)}
+    </ul>
+    {
+      githubUrl ? (
+        <a class="btn btn-ghost" href={githubUrl} target="_blank" rel="noopener noreferrer">
+          <Icon name="lucide:github" size={14} />
+          {t('cta.viewRepo')}
+        </a>
+      ) : (
+        <span class="legacy-card__private">
+          <Icon name="lucide:lock" size={12} />
+          {t('projects.noGithub.label')}
+        </span>
+      )
+    }
+  </div>
+</article>
+
+<style>
+  .legacy-card {
+    display: flex;
+    flex-direction: column;
+    overflow: clip;
+  }
+
+  .legacy-card__media {
+    aspect-ratio: 16 / 9;
+    background: var(--color-bg-inset);
+  }
+
+  .legacy-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .legacy-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-4);
+  }
+
+  .legacy-card__badges {
+    display: flex;
+    gap: var(--space-2);
+  }
+
+  .legacy-card__body p {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .legacy-card__stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    font-size: var(--text-xs);
+    color: var(--color-text-faint);
+  }
+
+  .legacy-card__stack li {
+    padding: 2px var(--space-2);
+    background: var(--color-bg-inset);
+    border-radius: var(--radius-sm);
+  }
+
+  .legacy-card__private {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-xs);
+    color: var(--color-text-faint);
+  }
+</style>

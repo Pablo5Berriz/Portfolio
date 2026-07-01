@@ -1,0 +1,112 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import type { Locale } from '../../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const all = await getCollection('experiences');
+const items = all
+  .filter((entry) => entry.data.lang === locale)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const title = { fr: 'Expériences professionnelles', en: 'Professional experience' }[locale];
+const metaDescription = {
+  fr: "Expériences professionnelles de Paul Quentin Ondoa : analyste/programmeur chez Eva Technologies, support informatique chez EBSU et RGAE.",
+  en: 'Professional experience of Paul Quentin Ondoa: analyst/programmer at Eva Technologies, IT support at EBSU and RGAE.',
+}[locale];
+---
+
+<BaseLayout locale={locale} title={title} description={metaDescription} path="/experiences">
+  <section class="section">
+    <div class="container">
+      <h1>{title}</h1>
+      <ul class="experience-list">
+        {
+          items.map((entry) => (
+            <li class="experience-card card">
+              {entry.data.logo && <img src={entry.data.logo} alt="" width="56" height="56" loading="lazy" />}
+              <div>
+                <h2>{entry.data.role}</h2>
+                <p class="experience-card__meta">
+                  {entry.data.organization} — {entry.data.period}
+                </p>
+                <p class="experience-card__summary">{entry.data.summary}</p>
+                <ul class="experience-card__highlights">
+                  {entry.data.highlights.map((h) => (
+                    <li>{h}</li>
+                  ))}
+                </ul>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    margin-top: var(--space-6);
+  }
+
+  .experience-card {
+    display: flex;
+    gap: var(--space-5);
+    padding: var(--space-6);
+  }
+
+  .experience-card img {
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+  }
+
+  .experience-card__meta {
+    color: var(--color-text-faint);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-3);
+  }
+
+  .experience-card__summary {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-3);
+  }
+
+  .experience-card__highlights {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .experience-card__highlights li {
+    padding-left: var(--space-4);
+    position: relative;
+  }
+
+  .experience-card__highlights li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--color-accent);
+  }
+
+  @media (max-width: 640px) {
+    .experience-card {
+      flex-direction: column;
+    }
+  }
+</style>

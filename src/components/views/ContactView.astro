@@ -1,0 +1,262 @@
+---
+import { Icon } from 'astro-icon/components';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { useTranslations, type Locale } from '../../i18n/utils';
+import { contact } from '../../i18n/content/contact';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const copy = contact[locale];
+
+const metaDescription = {
+  fr: 'Contactez Paul Quentin Ondoa pour un poste, une collaboration ou une question technique.',
+  en: 'Contact Paul Quentin Ondoa for a role, a collaboration, or a technical question.',
+}[locale];
+---
+
+<BaseLayout locale={locale} title={t('nav.contact')} description={metaDescription} path="/contact">
+  <section class="section">
+    <div class="container contact__grid">
+      <div class="contact__intro">
+        <h1>{copy.title}</h1>
+        <p class="lede">{copy.lede}</p>
+        <ul class="contact__details">
+          <li>
+            <Icon name="lucide:mail" size={18} />
+            <a href={`mailto:${copy.email}`}>{copy.email}</a>
+          </li>
+          <li>
+            <Icon name="lucide:phone" size={18} />
+            <a href={`tel:+1${copy.phone.replace(/\D/g, '')}`}>{copy.phone}</a>
+          </li>
+          <li>
+            <Icon name="lucide:map-pin" size={18} />
+            <span>{copy.location}</span>
+          </li>
+        </ul>
+        <div class="contact__socials">
+          <a class="btn btn-secondary" href="https://github.com/Pablo5Berriz" target="_blank" rel="noopener noreferrer">
+            <Icon name="lucide:github" size={16} />
+            {t('cta.viewGithub')}
+          </a>
+          <a
+            class="btn btn-secondary"
+            href="https://www.linkedin.com/in/paul-quentin-ondoa-5352951b5/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Icon name="lucide:linkedin" size={16} />
+            {t('cta.viewLinkedin')}
+          </a>
+        </div>
+      </div>
+
+      <form id="contact-form" class="card contact-form" novalidate>
+        <div class="field">
+          <label for="name">{t('contact.form.name')} *</label>
+          <input type="text" id="name" name="name" placeholder={t('contact.form.namePlaceholder')} required autocomplete="name" />
+        </div>
+
+        <div class="field">
+          <label for="email">{t('contact.form.email')} *</label>
+          <input type="email" id="email" name="email" placeholder={t('contact.form.emailPlaceholder')} required autocomplete="email" />
+        </div>
+
+        <div class="field">
+          <label for="phone">{t('contact.form.phone')}</label>
+          <input type="tel" id="phone" name="phone" placeholder={t('contact.form.phonePlaceholder')} autocomplete="tel" />
+        </div>
+
+        <div class="field">
+          <label for="message">{t('contact.form.message')} *</label>
+          <textarea id="message" name="message" rows="5" placeholder={t('contact.form.messagePlaceholder')} required></textarea>
+        </div>
+
+        <!-- Honeypot: hidden from sighted users and hidden from screen readers; bots that auto-fill every field will trip it. -->
+        <div class="field honeypot" aria-hidden="true">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <div class="field-checkbox">
+          <input type="checkbox" id="consent" name="consent" required />
+          <label for="consent">{t('contact.form.consent')} *</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="submit-button">
+          {t('contact.form.submit')}
+        </button>
+
+        <p id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <script
+    type="application/json"
+    id="contact-i18n"
+    is:inline
+    set:html={JSON.stringify({
+      errorRequired: t('contact.form.errorRequired'),
+      errorConsent: t('contact.form.errorConsent'),
+      errorRateLimit: t('contact.form.errorRateLimit'),
+      sending: t('contact.form.sending'),
+      success: t('contact.form.success'),
+      errorGeneric: t('contact.form.errorGeneric'),
+    })}
+  />
+</BaseLayout>
+
+<style>
+  .contact__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--space-8);
+    align-items: start;
+  }
+
+  .contact__intro {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .contact__details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .contact__details li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    color: var(--color-text-muted);
+  }
+
+  .contact__details :global(svg) {
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  .contact__socials {
+    display: flex;
+    gap: var(--space-3);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-6);
+  }
+
+  .honeypot {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    left: -9999px;
+  }
+
+  #form-status {
+    font-size: var(--text-sm);
+    min-height: 1.2em;
+  }
+
+  #form-status[data-state='success'] {
+    color: var(--color-success);
+  }
+
+  #form-status[data-state='error'] {
+    color: var(--color-danger);
+  }
+
+  @media (max-width: 860px) {
+    .contact__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  import emailjs from '@emailjs/browser';
+
+  const EMAILJS_PUBLIC_KEY = 'iP6iXrt0fsKUx7RP0';
+  const EMAILJS_SERVICE_ID = 'service_5ch69jb';
+  const EMAILJS_TEMPLATE_ID = 'template_zzri904';
+  const RATE_LIMIT_MS = 60_000;
+  const RATE_LIMIT_STORAGE_KEY = 'contact-form-last-submit';
+
+  emailjs.init(EMAILJS_PUBLIC_KEY);
+
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const status = document.getElementById('form-status');
+  const submitButton = document.getElementById('submit-button') as HTMLButtonElement | null;
+
+  const messages = JSON.parse(document.getElementById('contact-i18n')?.textContent || '{}');
+
+  function setStatus(text: string, state: 'success' | 'error' | '') {
+    if (!status) return;
+    status.textContent = text;
+    if (state) status.dataset.state = state;
+    else delete status.dataset.state;
+  }
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!form || !submitButton) return;
+
+    const data = new FormData(form);
+
+    // Honeypot: a filled hidden field means it's very likely a bot.
+    if ((data.get('company') as string)?.trim()) {
+      return;
+    }
+
+    const name = (data.get('name') as string)?.trim();
+    const email = (data.get('email') as string)?.trim();
+    const message = (data.get('message') as string)?.trim();
+    const consent = data.get('consent');
+
+    if (!name || !email || !message) {
+      setStatus(messages.errorRequired, 'error');
+      return;
+    }
+
+    if (!consent) {
+      setStatus(messages.errorConsent, 'error');
+      return;
+    }
+
+    const lastSubmit = Number(localStorage.getItem(RATE_LIMIT_STORAGE_KEY) ?? 0);
+    if (Date.now() - lastSubmit < RATE_LIMIT_MS) {
+      setStatus(messages.errorRateLimit, 'error');
+      return;
+    }
+
+    submitButton.disabled = true;
+    setStatus(messages.sending, '');
+
+    try {
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        name,
+        email,
+        phone: (data.get('phone') as string)?.trim() ?? '',
+        message,
+      });
+      localStorage.setItem(RATE_LIMIT_STORAGE_KEY, String(Date.now()));
+      setStatus(messages.success, 'success');
+      form.reset();
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      setStatus(messages.errorGeneric, 'error');
+    } finally {
+      submitButton.disabled = false;
+    }
+  });
+</script>

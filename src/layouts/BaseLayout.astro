@@ -1,0 +1,89 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { useTranslations, localizePath, type Locale } from '../i18n/utils';
+import '../styles/global.css';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  path: string; // unlocalized path, e.g. '/projects'
+  ogImage?: string;
+}
+
+const { locale, title, description, path, ogImage = '/images/profile.jpg' } = Astro.props;
+const t = useTranslations(locale);
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
+const canonicalUrl = `${siteUrl}${localizePath(locale, path)}`;
+const frUrl = `${siteUrl}${localizePath('fr', path)}`;
+const enUrl = `${siteUrl}${localizePath('en', path)}`;
+
+const pageTitle = `${title} — ${t('meta.siteName')}`;
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  mainEntity: {
+    '@type': 'Person',
+    name: 'Paul Quentin Ondoa',
+    url: siteUrl,
+    jobTitle: 'Développeur full-stack',
+    sameAs: [
+      'https://github.com/Pablo5Berriz',
+      'https://www.linkedin.com/in/paul-quentin-ondoa-5352951b5/',
+    ],
+  },
+};
+---
+
+<!doctype html>
+<html lang={locale} data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="fr" href={frUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href={frUrl} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+    <meta property="og:locale" content={locale === 'fr' ? 'fr_CA' : 'en_US'} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} is:inline />
+
+    <script is:inline>
+      // Runs before paint to avoid a flash of the wrong theme.
+      (function () {
+        var stored = localStorage.getItem('theme');
+        var theme = stored || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.dataset.theme = theme;
+      })();
+      localStorage.setItem('preferred-locale', document.documentElement.lang);
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">{t('nav.skip')}</a>
+    <Header locale={locale} path={path} />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer locale={locale} />
+  </body>
+</html>
