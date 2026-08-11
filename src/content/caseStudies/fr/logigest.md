@@ -11,7 +11,7 @@ features:
   - Plateforme SaaS de gestion agricole et d'élevage
   - Module de comptabilité intégré pour le suivi financier de l'exploitation
   - Architecture d'agents IA organisée selon une hiérarchie stricte chef de projet / superviseur
-stack: [SaaS, Agents IA]
+stack: [Next.js, Supabase, PostgreSQL]
 status: progress
 githubUrl: null
 demoUrl: null

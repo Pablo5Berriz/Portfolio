@@ -2,7 +2,7 @@
 slug: eduquiz-public
 lang: en
 title: EduQuiz
-badges: [mobile]
+badges: [mobile, web]
 problem: >-
   Quebec students from grade 5 (primaire 3) through grade 11 (secondaire 5)
   need a mobile revision tool, bilingual and aligned with the Ministry of
@@ -12,7 +12,7 @@ features:
   - Bilingual FR/EN content aligned with the MEQ curriculum
   - 122 screens inventoried and designed
   - Self-hosted infrastructure on Proxmox
-stack: [TypeScript, Proxmox]
+stack: [TypeScript, Next.js, Expo, Turborepo, Proxmox]
 status: progress
 githubUrl: https://github.com/Pablo5Berriz/eduquiz
 demoUrl: null

@@ -10,7 +10,7 @@ features:
   - SaaS platform for farm and livestock management
   - Built-in accounting module for tracking the operation's finances
   - AI agent architecture organized under a strict project-manager / supervisor hierarchy
-stack: [SaaS, AI agents]
+stack: [Next.js, Supabase, PostgreSQL]
 status: progress
 githubUrl: null
 demoUrl: null
