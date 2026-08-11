@@ -47,7 +47,7 @@ Vérification directe (WebFetch, code/manifestes en priorité sur README) des 8 
 | `mediahub` | Oui | 2 | **Non — README seul** | Non | — | — | 0/0 |
 | `eduquiz` | Oui | **70** | **Oui — monorepo Turborepo/pnpm** (`apps/`, `packages/`, `.github/`, `.husky/`, `infra/docker/`) | Oui | CI présente (`.github/`) | Oui | non relevé |
 
-**Constat central de ce lot** : sur les 8 dépôts désignés, **6 ne contiennent à ce jour qu'un `README.md`** (2-3 commits, 0 code source vérifiable). Seul `biketrip` contient du code réel substantiel. Ce constat détermine directement les décisions de liaison en section 6.
+**Constat central de ce lot** : **7 sur 8 dépôts ciblés sont README-only** (2-3 commits, 0 code source vérifiable). **BikeTrip est le seul des 8 avec du code substantiel.** EduQuiz a été audité en complément comme neuvième dépôt (hors des 8 désignés par le PM), et s'avère lui aussi contenir du code réel substantiel. Ce constat détermine directement les décisions de liaison en section 6.
 
 ## 4. Matrice de classification A/B/C/D/E
 
@@ -58,7 +58,7 @@ Vérification directe (WebFetch, code/manifestes en priorité sur README) des 8 
 | Paroisse Hub | **B — Secondaire** | Stack riche et vérifiable via manifeste fourni par le propriétaire ; pas de dépôt public à ce nom, non vérifiable indépendamment |
 | Cv Expert | **B — Secondaire** | Idem : profondeur technique réelle (schéma Prisma, Auth.js, conformité Loi 25) mais non vérifiable via un dépôt public |
 | SLG Tech | **B — Secondaire** | Dépôt public réel et fonctionnel, signal de compétence sécurité clair (remédiation de vulnérabilités) |
-| Logigest | **B — Secondaire** | Dépôt réel mais README seul ; stack corrigée grâce aux topics GitHub (signal plus fiable qu'une prose non vérifiée) |
+| Logigest | **B — Secondaire** | Dépôt réel mais README seul (aucun code) ; stack corrigée d'après les technologies déclarées via les topics GitHub du dépôt — une métadonnée déclarative du propriétaire, pas une vérification par le code |
 | Bilik Farm | **B — Secondaire** | Dépôt réel mais README seul ; contenu existant déjà cohérent avec la description du dépôt |
 | ComptaClems | **B — Secondaire** | Dépôt réel mais README seul ; fonctionnalités de sécurité (2FA, rate limiting) déjà bien documentées dans l'étude de cas |
 | BikeTrip | **B — Secondaire (nouveau)** | Preuve de code la plus solide après EduQuiz (27 commits, tests, CI) mais pas encore déployé/publié — statut "en cours" honnête |
@@ -82,7 +82,7 @@ Les 9 projets suivants restent inchangés dans leur contenu (structure, stack, s
 |---|---|---|---|---|
 | EduQuiz (fr+en) | `badges` | `[mobile]` | `[mobile, web]` | Monorepo réel contient `apps/` avec une app web Next.js **et** une app mobile Expo |
 | EduQuiz (fr+en) | `stack` | `[TypeScript, Proxmox]` | `[TypeScript, Next.js, Expo, Turborepo, Proxmox]` | Structure de dépôt vérifiée : `turbo.json`, `pnpm-workspace.yaml`, `apps/` (web+mobile) |
-| Logigest (fr+en) | `stack` | `[SaaS, Agents IA]` | `[Next.js, Supabase, PostgreSQL]` | Topics GitHub du dépôt réel : Next.js, Supabase, PostgreSQL. L'angle "agents IA" reste pleinement décrit dans les `features` (non perdu, juste déplacé du champ stack, qui doit lister des technologies, vers le champ fonctionnalités où il était déjà) |
+| Logigest (fr+en) | `stack` | `[SaaS, Agents IA]` | `[Next.js, Supabase, PostgreSQL]` | Technologies déclarées via les topics GitHub du dépôt réel (Next.js, Supabase, PostgreSQL) — une métadonnée renseignée par le propriétaire du dépôt, pas une stack vérifiée par le code (le dépôt ne contient aucun code source, voir §3). L'angle "agents IA" reste pleinement décrit dans les `features` (non perdu, juste déplacé du champ stack, qui doit lister des technologies, vers le champ fonctionnalités où il était déjà) |
 | Forum Sportif (fr+en) | Collection | `caseStudies` (étude de cas complète) | `legacyProjects` (format condensé) | Projet de formation explicitement identifié comme tel dans son propre texte ; reclassé en cohérence avec Cosmechic/WeatherWise |
 
 Aucune autre correction : les descriptions/problèmes/fonctionnalités des autres projets n'ont montré aucune incompatibilité avec les preuves disponibles.
@@ -103,7 +103,7 @@ Aucune autre correction : les descriptions/problèmes/fonctionnalités des autre
 
 ## 9. Preuves
 
-Toutes les vérifications ci-dessus proviennent de requêtes `WebFetch` directes vers `github.com/Pablo5Berriz/<repo>`, en demandant explicitement le listing de fichiers/dossiers réel (pas seulement la description) — conformément à l'ordre de confiance de la directive (code > manifestes > configuration > tests > historique > documentation > README). Pour les 6 dépôts "README seul", l'absence de code a été confirmée par une lecture directe du listing de fichiers de la page GitHub (pas une supposition). Pour BikeTrip et EduQuiz, l'arborescence complète (dossiers `app/`, `src/`, `apps/`, `packages/`, fichiers de configuration, présence de tests) a été listée explicitement.
+Toutes les vérifications ci-dessus proviennent de requêtes `WebFetch` directes vers `github.com/Pablo5Berriz/<repo>`, en demandant explicitement le listing de fichiers/dossiers réel (pas seulement la description) — conformément à l'ordre de confiance de la directive (code > manifestes > configuration > tests > historique > documentation > README). Pour les 7 dépôts "README seul" (sur les 8 ciblés), l'absence de code a été confirmée par une lecture directe du listing de fichiers de la page GitHub (pas une supposition). Pour BikeTrip et EduQuiz, l'arborescence complète (dossiers `app/`, `src/`, `apps/`, `packages/`, fichiers de configuration, présence de tests) a été listée explicitement.
 
 ## 10. Fichiers modifiés
 
