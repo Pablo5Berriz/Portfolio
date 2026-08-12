@@ -16,8 +16,8 @@ stack: [React Native, Expo, TypeScript, Supabase]
 status: progress
 githubUrl: https://github.com/Pablo5Berriz/biketrip
 demoUrl: null
-image: null
-imagePlaceholder: true
+image: /images/projects/biketrip.png
+imagePlaceholder: false
 order: 3
 ---
 
