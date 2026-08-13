@@ -1,0 +1,27 @@
+# Security headers for static hosts that read this file natively (e.g. Netlify).
+# Built from an explicit inventory of this site's actual resources: no
+# analytics, no CDN scripts, no external fonts, no iframes.
+#
+# script-src has no 'unsafe-inline': every inline/bundled-inline <script> on
+# the site is allowed by its exact SHA-256 hash instead. There are 4 of them,
+# verified against Chromium's own CSP-violation reports (not a regex guess):
+#   - root '/' locale-redirect stub (src/pages/index.astro)
+#   - theme flash-prevention script, present on every localized page (BaseLayout.astro)
+#   - mobile nav menu toggle, present on every localized page (Header.astro)
+#   - projects filter buttons, present only on /projects (ProjectsView.astro)
+# astro.config.mjs sets build.inlineStylesheets: 'never' so no inline <style>
+# hash is needed either. EmailJS (@emailjs/browser) calls api.emailjs.com
+# from the browser at submit time, hence the connect-src entry.
+#
+# If any of those four scripts' content ever changes, its hash changes too —
+# recompute (e.g. via scratch Playwright script reading the live page's
+# script.textContent, not a source-file regex: Astro's build can minify/
+# bundle small inline scripts, which a naive regex over the source will miss)
+# and update this file, or the affected script will silently stop running.
+
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-9kjhxFzhVktVfegQYtA7w6kOJwQEpvGN0OspwQ4zcII=' 'sha256-FqN8YP6S+wCgwV2/ms01NS0bnyanfbyKf/4RTAZsm8k=' 'sha256-F7YY8lR2h37owlpVg4yRF56CgjUIQoX6L7nYo6t5ecQ=' 'sha256-fiFKg7AkfLshjknGH/wyEaDcjKVS7kA8b869IysUNDs='; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self' https://api.emailjs.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  X-Frame-Options: DENY

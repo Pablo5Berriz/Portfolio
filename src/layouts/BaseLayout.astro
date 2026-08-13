@@ -10,9 +10,10 @@ interface Props {
   description: string;
   path: string; // unlocalized path, e.g. '/projects'
   ogImage?: string;
+  noindex?: boolean;
 }
 
-const { locale, title, description, path, ogImage = '/images/profile.jpg' } = Astro.props;
+const { locale, title, description, path, ogImage = '/images/profile.jpg', noindex = false } = Astro.props;
 const t = useTranslations(locale);
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
@@ -45,6 +46,7 @@ const personSchema = {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex,follow" />}
 
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hreflang="fr" href={frUrl} />

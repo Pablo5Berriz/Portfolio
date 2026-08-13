@@ -18,4 +18,10 @@ export default defineConfig({
     },
   },
   integrations: [icon(), sitemap()],
+  build: {
+    // Keep all CSS in external files (none inlined into <style> blocks) so the
+    // production Content-Security-Policy can use a plain `style-src 'self'`
+    // without per-page hashes or 'unsafe-inline'.
+    inlineStylesheets: 'never',
+  },
 });
