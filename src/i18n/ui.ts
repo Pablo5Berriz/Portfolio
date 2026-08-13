@@ -23,7 +23,7 @@ export const ui = {
     'cta.viewLinkedin': 'Voir LinkedIn',
     'cta.viewDemo': 'Voir la démo',
     'cta.viewRepo': 'Voir le dépôt',
-    'cta.learnMore': 'En savoir plus',
+    'cta.learnMoreExpertise': 'En savoir plus sur mon expertise',
 
     'theme.toLight': 'Passer en mode clair',
     'theme.toDark': 'Passer en mode sombre',
@@ -96,7 +96,7 @@ export const ui = {
     'cta.viewLinkedin': 'View LinkedIn',
     'cta.viewDemo': 'View demo',
     'cta.viewRepo': 'View repository',
-    'cta.learnMore': 'Learn more',
+    'cta.learnMoreExpertise': 'Learn more about my expertise',
 
     'theme.toLight': 'Switch to light mode',
     'theme.toDark': 'Switch to dark mode',
