@@ -4,20 +4,20 @@ lang: fr
 title: SLG Tech
 badges: [web, backend]
 problem: >-
-  La boutique en ligne vendait des appareils informatiques et technologiques
-  avec des vulnérabilités de sécurité critiques et un stockage de données
-  fragile (fichiers JSON).
+  La boutique en ligne d'appareils informatiques et technologiques
+  nécessitait un travail de renforcement de la sécurité et de fiabilisation
+  du stockage des données.
 features:
   - Boutique en ligne de vente d'appareils informatiques et technologiques
-  - Remédiation de 8 vulnérabilités critiques identifiées lors d'un audit de sécurité
-  - Migration du stockage de données de fichiers JSON vers PostgreSQL
+  - Travail de renforcement de la sécurité de la plateforme
+  - Attention portée à la fiabilité du stockage des données
 stack: [Node.js, Express, PostgreSQL]
 status: completed
-githubUrl: https://github.com/Pablo5Berriz/SLG-Tech
+githubUrl: null
 demoUrl: null
 image: /images/projects/slg-tech.jpg
 imagePlaceholder: false
 order: 6
 ---
 
-Boutique en ligne de vente d'appareils informatiques et technologiques. Un audit de sécurité a révélé 8 vulnérabilités critiques, toutes corrigées, et le stockage de données a été migré de fichiers JSON vers PostgreSQL pour plus de fiabilité et de scalabilité.
+Boutique en ligne de vente d'appareils informatiques et technologiques, avec un travail de renforcement de la sécurité de la plateforme et de fiabilisation du stockage des données.
