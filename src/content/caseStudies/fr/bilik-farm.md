@@ -9,9 +9,9 @@ problem: >-
 features:
   - Site web vitrine pour présenter la ferme
   - CRM pour la gestion des opérations d'agriculture et d'élevage
-stack: [PHP, JavaScript, MySQL]
+stack: [Next.js, NestJS, Prisma, PostgreSQL]
 status: completed
-githubUrl: null
+githubUrl: https://github.com/Pablo5Berriz/bilik-farm
 demoUrl: null
 image: /images/projects/bilik-farm.jpg
 imagePlaceholder: false

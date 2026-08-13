@@ -9,9 +9,9 @@ problem: >-
 features:
   - Marketing website to present the farm
   - CRM for managing crop and livestock operations
-stack: [PHP, JavaScript, MySQL]
+stack: [Next.js, NestJS, Prisma, PostgreSQL]
 status: completed
-githubUrl: null
+githubUrl: https://github.com/Pablo5Berriz/bilik-farm
 demoUrl: null
 image: /images/projects/bilik-farm.jpg
 imagePlaceholder: false
