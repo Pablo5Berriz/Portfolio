@@ -1,0 +1,17 @@
+project,repository,visibility,default_branch,verified_branch,code_present,stack_evidence,tests,ci,assets,portfolio_github_url,current_portfolio_status,recommended_status,recommended_action
+BikeTrip,Pablo5Berriz/biketrip,public,main,main,yes,CODE,jest+sql,yes,yes,https://github.com/Pablo5Berriz/biketrip,progress,PROJET PHARE,none
+EduQuiz,Pablo5Berriz/eduquiz,public,main,main,yes,CODE,vitest+playwright_partial,yes,partial,https://github.com/Pablo5Berriz/eduquiz,progress,PROJET PHARE,rebalance mobile/web text and proxmox claim
+Cosmechic,Pablo5Berriz/cosmechic-,public,main,codex/import-cosmechic,yes,CODE,none,none,yes,https://github.com/Pablo5Berriz/cosmechic-,n/a (legacy),PROJET ANTERIEUR,correct stack to ASP.NET Core/EF/SQL Server/Stripe
+Forum Sportif,Pablo5Berriz/forum-sportif,public,main,main,yes,CODE,none,none,unreviewed,https://github.com/Pablo5Berriz/Forum-Sportif,n/a (legacy),PROJET ANTERIEUR,retire CONTENT-PROVENANCE-01 reference
+SLG Tech,Pablo5Berriz/slg-tech,public,main,main,no,README,none,none,none,https://github.com/Pablo5Berriz/SLG-Tech,completed,A DECIDER,urgent PM decision on public link
+WeatherWise,Pablo5Berriz/weatherwise,public,main,main,yes,CODE,none,workflow_unrelated,yes,https://github.com/Pablo5Berriz/WeatherWise,n/a (legacy),PROJET ANTERIEUR,none (flag exposed API key externally)
+Garage Auto Gonzague,Pablo5Berriz/garage-auto-gonzague,public,main,main,no,TOPICS,none,none,none,null,production,PROJET SECONDAIRE,none
+Bilik Farm,Pablo5Berriz/bilik-farm,public,main,main,yes,CODE+MANIFEST,none,none,yes,null,completed,PROJET SECONDAIRE,correct stack to Next.js/NestJS/Prisma/PostgreSQL; consider githubUrl
+ComptaClems,Pablo5Berriz/comptaclems,public,main,main,no,TOPICS,none,none,none,null,progress,PROJET SECONDAIRE,none
+Logigest,Pablo5Berriz/logigest,public,main,main,no,TOPICS,none,none,none,null,progress,PROJET SECONDAIRE,none
+Cv Expert,Pablo5Berriz/cv-expert,private,main,main,yes,CODE,playwright_manual,none,none,null,progress,PROJET SECONDAIRE,none
+Paroisse Hub,Pablo5Berriz/paroisse-hub,private,feat/lot4-migration,feat/lot4-migration,yes,CODE,vitest+playwright,yes,none,null,progress,PROJET PHARE,enrich text to reflect real maturity
+Infotechs Solutions,Pablo5Berriz/infotechs-solutions,public,main,main,no,TOPICS,none,none,none,n/a (not in portfolio),n/a,NE PAS AFFICHER,none (insufficient evidence)
+MediaHub,Pablo5Berriz/mediahub,public,main,main,no,TOPICS,none,none,none,n/a (not in portfolio),n/a,NE PAS AFFICHER,none (insufficient evidence)
+workflow-ai-agents,Pablo5Berriz/workflow-ai-agents,public,main,main,no,TOPICS,none,none,none,n/a (not in portfolio),n/a,NE PAS AFFICHER,none (insufficient evidence)
+Proxmox,none (infrastructure project),n/a,n/a,n/a,n/a,INDIRECT,n/a,n/a,none,null,production,PROJET SECONDAIRE,nuance production status
